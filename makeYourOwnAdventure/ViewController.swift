@@ -12,14 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title:"Start again", style: .Plain, target: self, action: #selector(ViewController.startAgain))
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func startAgain () {
+        if let navigationController = navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
     }
-
+    
+    deinit {
+        print("removing")
+    }
 
 }
 
